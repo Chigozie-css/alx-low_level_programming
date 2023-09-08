@@ -1,26 +1,23 @@
 #include <stdio.h>
 
-
 /**
-* main - Entry point
-*
-* Description: print all aplhabet letters
-*
-* Return: Always 0 (Success)
+ * main - Entry point
+ *
+ * Description: print all lowercase letters
+ *
+ * Return: Always 0 (Success)
 */
 
 int main(void)
 {
+	char letter = 'a';
 
-        char alp[26] = "abcdefghijklmnopqrstuvwxyz";
-        int i;
+	while (letter <= 'z')
+	{
+		putchar(letter);
+		++letter;
+	}
+	putchar('\n');
 
-        for (i = 0; i < 26; i++)
-        {
-                putchar(alp[i]);
-        }
-
-        putchar('\n');
-
-        return (0);
+	return (0);
 }
