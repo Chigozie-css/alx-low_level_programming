@@ -3,20 +3,30 @@
 /**
  * main - Entry point
  *
- * Description: prints the alphabet in lowercase, and then in uppercase, followed by a new line
- * Return: Always O (Success)
+ * Description: print alphabet in lowercase then in uppercase
+ *
+ * Return: Always 0 (Success)
 */
+
 int main(void)
 {
-char alp[52] = "abcdefghijklmnopqrstuvwxyz"
-	"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char ch = 'a';
+	char CH = 'A';
 
-        int i;
+	/*prints a - z*/
+	while (ch <= 'z')
+	{
+		putchar(ch);
+		++ch;
+	}
 
-        for (i = 0; i < 52; i++)
-        {
-                putchar(alp[i]);
-        }
-        putchar('\n');
-        return (0);
+	/*print A - Z*/
+	while (CH <= 'Z')
+	{
+		putchar(CH);
+		++CH;
+	}
+	putchar('\n');
+
+	return (0);
 }
