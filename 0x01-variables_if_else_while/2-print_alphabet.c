@@ -2,14 +2,12 @@
 
 
 /**
-
- * main - Prints the alphabet.
-
- *
-
- * Return: Always 0 (Success)
-
- */
+* main - Entry point
+*
+* Description: print all aplhabet letters
+*
+* Return: Always 0 (Success)
+*/
 
 int main(void)
 {
