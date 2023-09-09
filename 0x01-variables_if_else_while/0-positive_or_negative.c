@@ -7,7 +7,7 @@
  *
  * Description: value of n status, positive, zero and negative
  *
- * return - Always 0 (successful)
+ * Return: Always 0 (successful)
  */
 
 int main(void)
