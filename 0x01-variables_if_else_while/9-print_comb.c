@@ -10,18 +10,12 @@
 
 int main(void)
 {
-	int num;
+	char num[] = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9\n";
 
-	putchar('0');
-
-	for (num = 1; num < 10; num++)
+	for (int i = 0; i < sizeof(num) - 1; i++)
 	{
-		putchar(',');
-		putchar(' ');
-
-		putchar('0' + num);
+		putchar(num[i]);
 	}
-	putchar('\n');
 
 	return (0);
 }
