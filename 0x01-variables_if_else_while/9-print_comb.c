@@ -10,12 +10,19 @@
 
 int main(void)
 {
-	char num[] = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9\n";
+	int num = 0;
 
-	for (size_t i = 0; i < sizeof(num) - 1; i++)
+	while (num <= 9)
+		putchar(num +48);
+
+	if (num != 9)
 	{
-		putchar(num[i]);
+		putchar(',');
+		putchar(' ');
 	}
+	++num;
+
+	putchat('\n');
 
 	return (0);
 }
