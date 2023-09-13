@@ -15,5 +15,5 @@ int main(void)
 	print_times_table(98);
         _putchar('\n');
 	print_times_table(12);
-        _putchar(0);
+        return (0);
 }
