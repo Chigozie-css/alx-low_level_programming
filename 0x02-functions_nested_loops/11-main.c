@@ -1,0 +1,17 @@
+#include "main.h"
+
+/**
+ * main - check code
+ *
+ * Return: 0 always
+ */
+
+int main(void)
+{
+	print_to_98(0);
+	print_to_98(98);
+	print_to_98(111);
+	print_to_98(81);
+	print_to_98(-10);
+	reture (0);
+}
