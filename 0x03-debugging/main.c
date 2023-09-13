@@ -1,4 +1,4 @@
-#include "../main.h"
+#include "main.h"
 
 /**
  * main - tests functions that prints if interger is 0 or 1
