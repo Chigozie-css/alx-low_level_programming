@@ -8,7 +8,7 @@
  * Return: converted  interger from string
  */
 
-void _atoi(char *s)
+int _atoi(char *s)
 {
 	unsigned int digit = 0;
 	int sign = 1;
