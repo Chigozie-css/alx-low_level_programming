@@ -4,16 +4,24 @@
 #include <time.h>
 
 /**
- * main - Generates random valid passwords for the program 101-crackme
+ * random_char - Generates random valid passwords for the program 101-crackme
  *
- * Return: 0 always
+ * @char_set: The character set from which to choose
+ *
+ * Return: The random selected character
  */
 
-char random_char(const char* char_set)
+char random_char(const char *char_set)
 {
 	int len = strlen(char_set);
 	return char_set[rand() % len];
 }
+
+/**
+ * main - Generates random valid passwords for the program 101-crackme
+ *
+ * Return: Always 0
+ */
 
 int main(void)
 {
