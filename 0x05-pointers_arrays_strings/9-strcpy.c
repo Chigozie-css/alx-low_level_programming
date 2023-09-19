@@ -4,13 +4,13 @@
 /**
  * _strcpy - Copies the string pointed to by src
  *
- * @str: Source of string parameter
+ * @src: Source of string parameter
  * @desk: String destination
  *
  * Return: Pointer to desk
  */
 
-char  *_strcpy(char *desk, char *src)
+char *_strcpy(char *desk, char *src)
 {
 	int a, b = 0;
 
