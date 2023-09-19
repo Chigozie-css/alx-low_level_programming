@@ -1,21 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <time.h>
 
-/**
- * random_char - Generates random valid passwords for the program 101-crackme
- *
- * @char_set: The character set from which to choose
- *
- * Return: The random selected character
- */
-
-char random_char(const char *char_set)
-{
-	int len = strlen(char_set);
-	return char_set[rand() % len];
-}
 
 /**
  * main - Generates random valid passwords for the program 101-crackme
@@ -25,20 +11,41 @@ char random_char(const char *char_set)
 
 int main(void)
 {
-	const char* uppercase_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	const char* lowercase_chars = "abcdefghijklmnopqrstuvwxyz";
-	const char* digit_chars = "0123456789";
+	char password [84];
+	int index = 0, sum = 0, diff_half1, diff_half2;
 
-	srand(time(NULL));
-
-	int password_length = 12;
-	printf("Generated password: ");
-	for (int i = 0; i < password_length; ++i)
+	srand(time(0));
+	while (sum < 2772)
 	{
-		const char* char_set[] = {uppercase_chars, lowercase_chars, digit_chars};
-		int char_set_index = rand() % 3;
-		putchar(random_char(char_set[char_set_index]));
+		password[index] = 33 + rand() % 94;
+		sum += password[index++];
 	}
-	printf("\n");
+	password[index] = '\0';
+	if (sum != 2772)
+	{
+		diff_half1 = (sum - 2772) / 2;
+		diff_half2 = (sum - 2772) / 2;
+
+		if ((sum - 2772) % 2 != 0)
+			diff_half1++;
+
+		for (index = 0; password[index]; index++)
+		{
+			if (password[index] >= (33 + diff_half1))
+			{
+				password[index] -= diff_half1;
+				break;
+			}
+		}
+		for (index = 0; password[index]; index++)
+		{
+			if (password[index] >= (33 + diff_half2))
+			{
+				password[index] -= diff_half2;
+				break;
+			}
+		}
+	}
+	printf("%s", password);
 	return (0);
 }
