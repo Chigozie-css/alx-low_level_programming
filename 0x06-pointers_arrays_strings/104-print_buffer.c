@@ -2,62 +2,44 @@
 #include <stdio.h>
 
 /**
- * print_buffer - A function that prints a buffer
- *
- * @c: Buffer to print
- * @s: Bytes of buffer
- * @l: Buffer line
- *
- * Return: 0
- */
-
-void print_line(char *c, int s, int l)
-{
-	int j, k;
-
-	for (j = 0; j <= 9; j++)
-	{
-		if (j <= s)
-			printf("%02x", c[l * 10 + j]);
-		else
-			printf("  ");
-		if (j % 2)
-			putchar(' ');
-	}
-	for (k = 0; k <= s; k++)
-	{
-		if (c[l * 10 + k] > 31 && c[l * 10 + k] < 127)
-			putchar(c[l * 10 + k]);
-		else
-			putchar('.');
-	}
-}
-
-/**
  * print_buffer - Prints buffer
+ *
  * @b: Buffer to print
  * @size: Buffer size
- *
- * Return: 0
  */
 
 void print_buffer(char *b, int size)
 {
-	int i;
+	int num1, num2;
 
-	for (i = 0; i <= (size - 1) / 10 && size; i++)
+	for (num1 = 0; num1 < size; num1 += 10)
 	{
-		printf("%08x: ", i * 10);
-		if (i < size / 10)
+		printf("%08x: ", num1);
+
+		for (num2 = 0; num2 < 10; num2++)
 		{
-			print_line(b, 9, i);
+			if ((num2 + num1) >= size)
+				printf("  ");
+			else
+				printf("%02x", *(b + num2 + num1));
+			if ((num2 % 2) != 0 && num2 != 0)
+				printf(" ");
 		}
-		else
+		for (num2 = 0; num2 < 10; num2++)
 		{
-			print_line(b, size % 10 - 1, i);
+			if ((num2 + num1) >= size)
+				break;
+			else if (*(b + num2 + num1) >= 31 &&
+				 *(b + num2 + num1) <= 126)
+				printf("%c", *(b + num2 + num1));
+			else
+				printf(".");
 		}
-		putchar('\n');
+		if (num1 >= size)
+			continue;
+		printf("\n");
 	}
-	if (size == 0)
-		putchar('\n');
+	if (size <= 0)
+	printf("\n");
 }
+
