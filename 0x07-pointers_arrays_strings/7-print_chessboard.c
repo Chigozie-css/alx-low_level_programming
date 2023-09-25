@@ -13,7 +13,7 @@ void print_chessboard(char (*a)[8])
 
 	b = 0;
 	c = 0;
-	while (b < 65)
+	while (b < 64)
 	{
 		if (b % 8 == 0 && b != 0)
 		{
