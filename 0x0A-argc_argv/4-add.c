@@ -1,59 +1,38 @@
-#include <stdlib.h>
 #include <stdio.h>
-
-/**
- * isIndex - check if string array is indexTwo
- *
- * @indexTwo: string
- *
- * Return: 0
- */
-
-int isIndex(char *indexTwo)
-{
-	int i = 0;
-
-	while (indexTwo[i] != '\0')
-	{
-		if (!(indexTwo[i] >= '0' && indexTwo[i] <= '9'))
-			return (0);
-		i++;
-	}
-	return (1);
-}
+#include <stdlib.h>
 
 /**
  * main - adds positive numbers
  *
- * @argc: container
- * @argv: pointer
+ * @argc: arg count
+ * @argv: args
  *
  * Return: 0
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int b, sum = 0;
+	int i, n, sum = 0;
+	char *flag;
 
 	if (argc < 2)
 	{
 		printf("0\n");
 		return (0);
 	}
-
-	for (int b = 1; b < argc; b++)
+	for (i = 1; argv[i]; i++)
 	{
-		if (isIndex(argv[b]))
+		n = strtol(argv[i], &flag, 10);
+		if (*flag)
 		{
-			sum += atoi(argv[b]);
+			printf("ENter\n");
+			return (1);
 		}
 		else
 		{
-			printf("Error\n");
-			return (1);
+			sum += n;
 		}
 	}
 	printf("%d\n", sum);
 	return (0);
 }
-
