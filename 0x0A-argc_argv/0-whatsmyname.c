@@ -5,7 +5,7 @@
  * main - prints it's name
  *
  * @argc: container for passed arguments
- * @argc: pointer that holds the passed arguments
+ * @argv: pointer that holds the passed arguments
  *
  * Return: 0
  */
