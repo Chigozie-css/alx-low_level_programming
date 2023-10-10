@@ -21,7 +21,7 @@ int str1(const char *str)
 }
 
 /**
- * strcpy - returns @dest with a copy of a string from @src
+ * _strcpy - returns @dest with a copy of a string from @src
  *
  * @src: string to copy
  * @dest: copied string destination
