@@ -16,9 +16,9 @@ void print_binary(unsigned long int n)
 		printf("0");
 		return;
 	}
-	for (b4 = n, mv = 0; (b4 >>= 1) > 0; mv++ )
+	for (b4 = n, mv = 0; (b4 >>= 1) > 0; mv++)
 		;
-	for (;mv >= 0; mv--)
+	for (; mv >= 0; mv--)
 	{
 		if ((n >> mv) & 1)
 			printf("1");
