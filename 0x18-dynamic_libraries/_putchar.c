@@ -1,14 +1,18 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 /**
- * _putchar - Writes a character to stdout.
- * @c: The character to print.
+ * _putchar - library
  *
- * Return: On success, the number of characters written (1).
- * On error, -1 is returned, and errno is set appropriately.
+ * @c: character
+ *
+ * Return: @c
  */
+
 int _putchar(char c)
 {
-	write(1, &c, 1);
-	/* write returns the number of characters written */
+	return (putchar(c));
 }

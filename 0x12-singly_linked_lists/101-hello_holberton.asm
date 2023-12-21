@@ -2,12 +2,12 @@ global main
 extern printf
 
 section .data
-format db "Hello, Holberton\n", 0
+combined db "Hello, Holberton", 10, 0
 
 section .text
 main:
-mov edi, format
-xor eax, eax
+mov rdi, combined
 call printf
-mov eax, 0
-ret
+mov eax, 60
+xor edi, edi
+syscall
