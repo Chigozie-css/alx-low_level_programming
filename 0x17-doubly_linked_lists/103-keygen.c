@@ -3,31 +3,48 @@
 #include <string.h>
 #include <time.h>
 
+/**
+ * main - Entry point. Generates a key for a given username.
+ *
+ * @argc: number of arguments
+ * @argv: array of arguments
+ * Return: 0 on success, 1 on failure
+ */
+
 int main(int argc, char **argv)
 {
-    if (argc != 2)
-    {
-        fprintf(stderr, "Usage: %s <username>\n", argv[0]);
-        return EXIT_FAILURE;
-    }
+	if (argc != 2)
+	{
+		fprintf(stderr, "Usage: %s <username>\n", argv[0]);
+		return (EXIT_FAILURE);
+	}
 
-    char *username = argv[1];
-    int len = strlen(username);
+	char *username = argv[1];
+	int len = strlen(username);
 
-    srand(time(NULL));
+	srand(time(NULL));
 
-    char key[7];
-    key[0] = len ^ 59;
-    key[1] = (len * 3) ^ 79;
-    key[2] = (len * 5) ^ 85;
-    key[3] = find_largest_char(username, len);
-    key[4] = multiply_chars(username, len);
-    key[5] = generate_random_char(username);
+	char key[7];
 
-    printf("%s\n", key);
+	key[0] = len ^ 59;
+	key[1] = (len * 3) ^ 79;
+	key[2] = (len * 5) ^ 85;
+	key[3] = find_largest_char(username, len);
+	key[4] = multiply_chars(username, len);
+	key[5] = generate_random_char(username);
 
-    return EXIT_SUCCESS;
+	printf("%s\n", key);
+
+	return (EXIT_SUCCESS);
 }
+
+/**
+ * find_largest_char - Finds the largest character in the username.
+ *
+ * @usrn: username
+ * @len: length of username
+ * Return: largest character found
+ */
 
 int find_largest_char(char *usrn, int len)
 {
@@ -42,8 +59,16 @@ int find_largest_char(char *usrn, int len)
 	}
 
 	srand(ch ^ 14);
-	return (rand() & 63);
+	return ((rand() & 63));
 }
+
+/**
+ * multiply_chars - Multiplies each character of the username.
+ *
+ * @usrn: username
+ * @len: length of username
+ * Return: multiplied character
+ */
 
 int multiply_chars(char *usrn, int len)
 {
@@ -59,6 +84,13 @@ int multiply_chars(char *usrn, int len)
 	return (((unsigned int)ch ^ 239) & 63);
 }
 
+/**
+ * generate_random_char - Generates a random character based on the username.
+ *
+ * @usrn: username
+ * Return: random character
+ */
+
 int generate_random_char(char *usrn)
 {
 	int ch = 0;
@@ -70,5 +102,5 @@ int generate_random_char(char *usrn)
 		vch++;
 	}
 
- 	return (((unsigned int)ch ^ 229) & 63);
+	return (((unsigned int)ch ^ 229) & 63);
 }
