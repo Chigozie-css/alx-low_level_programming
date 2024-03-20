@@ -4,17 +4,16 @@ CC = gcc
 # Source files
 SRC = main.c school.c
 
+# Object files
+OBJ = $(SRC:.c=.o)
+
 # Executable name
-EXECUTABLE = school
+NAME = school
 
-# Rule for linking the program
-$(EXECUTABLE): $(SRC)
-	$(CC) $^ -o $@
-
-# Rule for compiling source files
-%.o: %.c
-	$(CC) -c $< -o $@
+# Rule for compiling and linking the program
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
 # Rule for cleaning object files and executable
 clean:
-	rm -f $(EXECUTABLE)
+	rm -f $(OBJ) $(NAME)
