@@ -33,9 +33,11 @@ oclean:
 
 # Rule for cleaning all files
 fclean: clean oclean
+	@$(RM) $(NAME)
 
 # Rule for rebuilding the project
 re: fclean all
 
 # Phony targets
 .PHONY: all clean oclean fclean re
+
