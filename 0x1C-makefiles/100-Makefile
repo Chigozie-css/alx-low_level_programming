@@ -20,7 +20,7 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $@
 
 # Rule for compiling source files
-$(OBJ): %.o: %.c m.h
+%.o: %.c m.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Rule for cleaning Emacs and Vim temporary files
