@@ -1,0 +1,20 @@
+# Compiler
+CC = gcc
+
+# Source files
+SRC = main.c school.c
+
+# Executable name
+EXECUTABLE = school
+
+# Rule for linking the program
+$(EXECUTABLE): $(SRC)
+	$(CC) $^ -o $@
+
+# Rule for compiling source files
+%.o: %.c
+	$(CC) -c $< -o $@
+
+# Rule for cleaning object files and executable
+clean:
+	rm -f $(EXECUTABLE)
