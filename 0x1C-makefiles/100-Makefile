@@ -25,11 +25,11 @@ $(OBJ): %.o: %.c m.h
 
 # Rule for cleaning Emacs and Vim temporary files
 clean:
-	@rm -f *~ $(NAME)
+	@$(RM) *~ $(NAME)
 
 # Rule for cleaning object files
 oclean:
-	@rm -f $(OBJ)
+	@$(RM) $(OBJ)
 
 # Rule for cleaning all files
 fclean: clean oclean
