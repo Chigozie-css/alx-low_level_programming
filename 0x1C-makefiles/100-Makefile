@@ -13,9 +13,6 @@ NAME = school
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Phony targets
-.PHONY: all clean oclean fclean re
-
 # Rule for compiling and linking the program
 all: $(NAME)
 
@@ -23,19 +20,22 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $@
 
 # Rule for compiling source files
-%.o: %.c m.h
+$(OBJ): %.o: %.c m.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Rule for cleaning object files and executable
+# Rule for cleaning Emacs and Vim temporary files
 clean:
-	$(RM) *~ $(NAME)
+	@rm -f *~ $(NAME)
 
 # Rule for cleaning object files
 oclean:
-	$(RM) $(OBJ)
+	@rm -f $(OBJ)
 
 # Rule for cleaning all files
 fclean: clean oclean
 
 # Rule for rebuilding the project
 re: fclean all
+
+# Phony targets
+.PHONY: all clean oclean fclean re
