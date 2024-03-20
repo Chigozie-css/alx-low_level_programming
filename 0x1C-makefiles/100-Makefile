@@ -1,41 +1,35 @@
-# Compiler
+# Compiler to be used
 CC = gcc
 
 # Source files
 SRC = main.c school.c
 
-# Object files
+# Object files derived from source files
 OBJ = $(SRC:.c=.o)
 
-# Executable name
+# Name of the executable
 NAME = school
 
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Rule for compiling and linking the program
-all: m.h $(NAME)
+# Phony targets to prevent conflicts with file names
+.PHONY: all clean oclean fclean re
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $@
+# Rule to compile all object files and link them into the executable
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-# Rule for compiling source files
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Rule for cleaning Emacs and Vim temporary files
+# Rule to clean up Emacs and Vim temporary files along with the executable
 clean:
 	$(RM) *~ $(NAME)
 
-# Rule for cleaning object files
+# Rule to clean up object files
 oclean:
 	$(RM) $(OBJ)
 
-# Rule for cleaning all files
+# Rule to clean up all files, including Emacs and Vim temporary files and object files
 fclean: clean oclean
 
-# Rule for rebuilding the project
+# Rule to force recompilation of all source files by first cleaning the project and then rebuilding it
 re: fclean all
-
-# Phony targets
-.PHONY: all clean oclean fclean re
