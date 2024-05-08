@@ -2,8 +2,8 @@
 #include <math.h>
 
 /**
- * jump_search - searches for a value in an array
- * using the Jump search algorithm
+ * jump_search - searches for a value in a sorted array of integers
+ *               using the Jump search algorithm
  *
  * @array: pointer to the first element of the array
  * @size: number of elements in the array
@@ -19,15 +19,12 @@ int jump_search(int *array, size_t size, int value)
 	int left = 0;
 	int right = 0;
 
-	do {
+	while (right < (int)size && array[right] < value)
+	{
 		printf("Value checked array[%d] = [%d]\n", right, array[right]);
-
-		if (array[right] >= value || right >= (int)size)
-			break;
-
 		left = right;
 		right += jump;
-	} while (right < (int)size);
+	}
 
 	printf("Value found between indexes [%d] and [%d]\n", left, right);
 
